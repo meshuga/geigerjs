@@ -1,8 +1,6 @@
 # geigerjs
 Enabling Geiger counters via the [Web Bluetooth API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API).
 
-Access the UI [here](https://meshuga.github.io/geigerjs/).
-
 It's a small reverse-engineering project, use it at your own risk.
 
 ### Requirements
