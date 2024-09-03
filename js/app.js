@@ -10,6 +10,9 @@ const setDeviceName = (name) => {
   document.getElementById("device").textContent = deviceName;
 }
 
+const measurementCode = '0000fff0-0000-1000-8000-00805f9b34fb'; // interestingly, it's same as ISSC Transparent Service
+const mainServiceCode =  0xfff0;
+const notificationServiceCode = 0xfff2;
 
 var rowData = [];
 
@@ -48,7 +51,7 @@ setDeviceName(noDevice);
 document.getElementById("start").onclick = (e) => {
   console.log('Requesting Bluetooth Device...');
 
-  navigator.bluetooth.requestDevice({filters: [{services: ['0000fff0-0000-1000-8000-00805f9b34fb']}]})
+  navigator.bluetooth.requestDevice({filters: [{services: [measurementCode]}]})
     .then(device => {
       setDeviceName(device.name);
       console.log('Connecting to GATT Server...');
@@ -56,11 +59,11 @@ document.getElementById("start").onclick = (e) => {
     })
     .then(server => {
       console.log('Getting Service...');
-      return server.getPrimaryService(0xfff0);
+      return server.getPrimaryService(mainServiceCode);
     })
     .then(service => {
       console.log('Getting Characteristic...');
-      return service.getCharacteristic(0xfff2);
+      return service.getCharacteristic(notificationServiceCode);
     })
     .then(characteristic => {
       myCharacteristic = characteristic;
