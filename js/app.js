@@ -10,13 +10,6 @@ const setDeviceName = (name) => {
   document.getElementById("device").textContent = deviceName;
 }
 
-const interval = setInterval(function () {
-  navigator.geolocation.getCurrentPosition(function (location) {
-    myLatitude = location.coords.latitude;
-    mylongitude = location.coords.longitude;
-  });
-}, 1000);
-
 
 var rowData = [];
 
@@ -34,7 +27,21 @@ const gridOptions = {
 
 // Your Javascript code to create the Data Grid
 const myGridElement = document.querySelector('#myGrid');
-const gridApi = agGrid.createGrid(myGridElement, gridOptions);
+
+var loaded = false;
+var gridApi;
+
+if (!loaded) {
+  loaded = true;
+  gridApi = agGrid.createGrid(myGridElement, gridOptions);
+
+  const interval = setInterval(function () {
+    navigator.geolocation.getCurrentPosition(function (location) {
+      myLatitude = location.coords.latitude;
+      mylongitude = location.coords.longitude;
+    });
+  }, 1000);
+}
 
 setDeviceName(noDevice);
 
