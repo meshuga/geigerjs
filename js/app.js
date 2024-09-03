@@ -114,10 +114,10 @@ function handleNotifications(event) {
     let type = ""
     switch (typeCode) {
       case '0x01':
-        type = 'uSv'
+        type = 'µSv'
         break
       case '0x04':
-        type = 'SV/h'
+        type = 'µSV/h'
         break
       case '0x05':
         type = 'mR/h'
