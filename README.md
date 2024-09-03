@@ -15,4 +15,4 @@ Bluetooth API is available in Chrome on Android, Chrome OS, Linux, and Mac. Mozi
 
 ### Who needs security?
 
-Note: Bluetooth doesn't seem to be an appropriate protocol for providing access to Geiger counter devices, especially since these devices also allow for the execution of commands. This applies not only to Geiger counters but also to other devices, such as ["smart home" devices](https://pushstack.wordpress.com/2018/01/25/voltcraft-sem-3600bt-who-needs-security/).
+Note: These Geiger devices do not appear to be implemented properly, particularly given that they allow for the execution of commands. This concern extends not only to Geiger counters but also to other devices from those manufacturers, such as ["smart home" devices](https://pushstack.wordpress.com/2018/01/25/voltcraft-sem-3600bt-who-needs-security/).
